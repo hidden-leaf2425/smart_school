@@ -16,6 +16,7 @@ PubSubClient client(espClient);
 
 void setup() {
   Serial.begin(9600);
+  Serial1.begin(9600);
   WiFi.begin(ssid, password);
 
   // Kết nối WiFi
@@ -52,7 +53,7 @@ void loop() {
     }
   }
   client.loop();
-  String payload = Serial.readStringUntil('\n');
+  String payload = Serial1.readStringUntil('\n');
     if (payload != "") {
         Serial.print("Sending payload: ");
         Serial.println(payload);
